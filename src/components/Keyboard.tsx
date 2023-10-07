@@ -9,11 +9,9 @@ const Keyboard = () => {
     isGameOver,
     handleGuessedLetterAdd
   }: IWordContext = useWordContext();
-  
-  const isDisabled = hasFoundWinner || isGameOver;
 
   // Generate Keys from 'a' to 'z', only generated once.
-  const keys = useMemo(() => {
+  const keys: string[] = useMemo(() => {
     const keys = [];
     for (let i = 0; i < 26; i++) {
       keys.push(String.fromCharCode('a'.charCodeAt(0) + i))
@@ -32,7 +30,7 @@ const Keyboard = () => {
             <button
               className={btnClassName} 
               key={key}
-              disabled={isActive || isInactive || isDisabled} 
+              disabled={isActive || isInactive || hasFoundWinner || isGameOver} 
               onClick={() => { handleGuessedLetterAdd(key) }}
             >
               {key}
