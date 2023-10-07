@@ -14,7 +14,7 @@ export interface IWordContext {
     handleNextButtonClick: () => void;
 };
 
-const API_ENDPOINT = 'https://random-word-api.vercel.app/api?words=1';
+const API_ENDPOINT:string = 'https://random-word-api.vercel.app/api?words=1';
 const WordContext = createContext<IWordContext | undefined>(undefined);
 
 
@@ -31,7 +31,7 @@ const WordProvider = ({ children }: { children: ReactNode }) => {
   const [word, setWord] = useState<string>('');
   const [guessedLetters, setGuessedLetters] = useState<Set<string>>(new Set());
   
-  const [correctLetters, incorrectLetters, isGameOver] = useMemo(() => {
+  const [correctLetters, incorrectLetters, isGameOver] = useMemo<[Set<string>, Set<string>, boolean]>(() => {
     const wordSet = new Set<string>(word);
     const correctLetters = new Set<string>();
     const incorrectLetters = new Set<string>();
@@ -50,7 +50,7 @@ const WordProvider = ({ children }: { children: ReactNode }) => {
   }, [guessedLetters]);
 
 
-  const setRandomWord = async () => {
+  const setRandomWord = async (): Promise<void> => {
     try {
       const res = await fetch(API_ENDPOINT);
       if (!res.ok) {
@@ -66,7 +66,7 @@ const WordProvider = ({ children }: { children: ReactNode }) => {
     };
   };
 
-  const hasFoundWinner = useMemo(() => {
+  const hasFoundWinner = useMemo<boolean>(() => {
     if (word === '') {
       return false;
     }
@@ -80,7 +80,7 @@ const WordProvider = ({ children }: { children: ReactNode }) => {
   }, [guessedLetters]);
 
 
-  const handleGuessedLetterAdd = useCallback((letter: string) => {
+  const handleGuessedLetterAdd = useCallback((letter: string): void => {
     if (guessedLetters.has(letter) || isGameOver || hasFoundWinner) {
       return;
     }
@@ -136,7 +136,7 @@ const WordProvider = ({ children }: { children: ReactNode }) => {
   }, [])
 
 
-  const handleNextButtonClick = () => {
+  const handleNextButtonClick = (): void => {
     setRandomWord();
     setGuessedLetters(new Set());
   };
