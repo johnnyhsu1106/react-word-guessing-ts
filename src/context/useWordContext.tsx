@@ -98,7 +98,7 @@ const WordProvider = ({ children }: { children: ReactNode }) => {
 
   // Handle Key(letters) Press  Event
   useEffect(() => {
-    const handler = (e) => {
+    const handler = (e: KeyboardEvent) => {
       const { key } = e;
       // only a to z is valid
       if (!key.match(/^[a-z]$/) && !key.match(/^[A-Z]$/)) {
