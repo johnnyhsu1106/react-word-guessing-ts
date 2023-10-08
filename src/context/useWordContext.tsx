@@ -1,7 +1,6 @@
 import { useState, useEffect, useMemo, useCallback, useContext, createContext, ReactNode } from 'react'
 import  BODY_PARTS  from '../utils/body';
 
-
 export interface IWordContext {
     word: string;
     numOfIncorrectGuess: number;
