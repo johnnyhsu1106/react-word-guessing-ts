@@ -14,12 +14,12 @@ export interface IWordContext {
 };
 
 const API_ENDPOINT:string = 'https://random-word-api.vercel.app/api?words=1';
-const WordContext = createContext<IWordContext | undefined>(undefined);
+const WordContext = createContext<IWordContext | null>(null);
 
 
 const useWordContext = () => {
   const context = useContext(WordContext);
-  if (context === undefined) {
+  if (context === null) {
     throw new Error('useWordContext must be used within a WordProvider');
   }
   return context;
