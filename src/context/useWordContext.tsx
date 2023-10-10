@@ -5,7 +5,7 @@ interface WordProviderProps {
   children: ReactNode
 };
 
-export interface IWordContext {
+interface IWordContext {
     word: string;
     numOfIncorrectGuess: number;
     hasFoundWinner: boolean;
