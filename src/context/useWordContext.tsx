@@ -1,6 +1,10 @@
 import { useState, useEffect, useMemo, useCallback, useContext, createContext, ReactNode } from 'react'
 import  BODY_PARTS  from '../utils/body';
 
+interface WordProviderProps {
+  children: ReactNode
+};
+
 export interface IWordContext {
     word: string;
     numOfIncorrectGuess: number;
@@ -26,7 +30,7 @@ const useWordContext = () => {
 };
 
 
-const WordProvider = ({ children }: { children: ReactNode }) => {
+const WordProvider = ({ children }: WordProviderProps) => {
   const [word, setWord] = useState<string>('');
   const [guessedLetters, setGuessedLetters] = useState<Set<string>>(new Set());
   

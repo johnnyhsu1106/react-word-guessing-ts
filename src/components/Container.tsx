@@ -1,6 +1,10 @@
 import { ReactNode } from 'react';
 
-const Container = ({ children } : {children: ReactNode}) => {
+interface ContainerProps {
+  children: ReactNode;
+};
+
+const Container = ({ children } : ContainerProps) => {
   return (
     <div className='container'>
       {children}

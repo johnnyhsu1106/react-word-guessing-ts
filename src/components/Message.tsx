@@ -1,11 +1,11 @@
-import { useWordContext, IWordContext } from '../context/useWordContext';
+import { useWordContext } from '../context/useWordContext';
 
 const Message = () => {
   const {
     hasFoundWinner,
     isGameOver,
     handleNextButtonClick
-  }: IWordContext = useWordContext();
+  } = useWordContext();
 
 
   return (

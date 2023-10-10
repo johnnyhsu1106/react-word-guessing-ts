@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { useWordContext, IWordContext } from '../context/useWordContext';
+import { useWordContext } from '../context/useWordContext';
 
 const Keyboard = () => {
   const {
@@ -8,7 +8,7 @@ const Keyboard = () => {
     hasFoundWinner,
     isGameOver,
     handleGuessedLetterAdd
-  }: IWordContext = useWordContext();
+  } = useWordContext();
 
   // Generate Keys from 'a' to 'z', only generated once.
   const keys: string[] = useMemo(() => {

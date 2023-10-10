@@ -1,10 +1,10 @@
-import { useWordContext, IWordContext } from '../context/useWordContext';
+import { useWordContext } from '../context/useWordContext';
 import BODY_PARTS from '../utils/body';
 
 const Drawing = () => {
   const {
     numOfIncorrectGuess
-  }: IWordContext = useWordContext();
+  } = useWordContext();
 
   return (
     <div className='drawing-container'>

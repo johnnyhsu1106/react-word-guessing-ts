@@ -1,4 +1,4 @@
-import { useWordContext, IWordContext } from '../context/useWordContext';
+import { useWordContext } from '../context/useWordContext';
 
 const Word = () => {
   const {
@@ -6,7 +6,7 @@ const Word = () => {
     hasFoundWinner,
     isGameOver,
     guessedLetters
-  }: IWordContext = useWordContext();
+  } = useWordContext();
 
   const hasRevealed = hasFoundWinner || isGameOver;
 
