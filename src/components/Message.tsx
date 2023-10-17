@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useWordContext } from '../context/useWordContext';
 
 const Message = () => {
@@ -7,6 +8,18 @@ const Message = () => {
     handleNextButtonClick
   } = useWordContext();
 
+  const message = useMemo<string | null>((): string | null => {
+    if (hasFoundWinner) {
+      return 'Congratulations';
+    }
+
+    if (!hasFoundWinner && isGameOver) {
+      return 'Too bad. Try Again';
+    }
+    
+    return null;
+
+  }, [hasFoundWinner, isGameOver]);
 
   return (
     <div className='message-container'>
@@ -19,8 +32,7 @@ const Message = () => {
       >
         Next Word
       </button>
-      <p className={`win ${hasFoundWinner ? 'visible' : 'hidden'}`}>Congratulations</p>
-      <p className={`lose ${!hasFoundWinner && isGameOver ? 'visible' : 'hidden'}`}>Too bad. Try Again</p>
+      <p className='message'>{message}</p>
     </div>
   )
 }
