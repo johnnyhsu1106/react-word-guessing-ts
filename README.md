@@ -1,6 +1,8 @@
 # Getting Started
 This is a currency conventer built based on React + TypeScript.
 
+App: https://react-word-guessing-by-jh.web.app/
+
 Checkout this repo, install dependencies, then start the gulp process with the following:
 ```
 > npm install
