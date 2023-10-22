@@ -1,5 +1,5 @@
-import { FC, useMemo } from 'react'
-import { useWordContext } from '../context/useWordContext';
+import { useMemo } from 'react'
+import { useWordContext } from '../context/WordContext';
 
 const Keyboard = () => {
   const {
